@@ -1,0 +1,104 @@
+<!--
+=======================================================
+  LUXURY STAY — SECTION 8: BOOKING MODAL + MY BOOKINGS
+  File: 08_booking-modals.html
+=======================================================
+  TOPIC COVERED:
+  • Booking Wizard Modal (#bookingOverlay):
+      - Full-screen overlay (closes on outside click)
+      - 4-step progress indicator: Stay → Details → Payment → Confirm
+      - #bookingBody is dynamically filled by script.js
+        depending on the current step
+      - openBookingModal() / openRoomBooking() / openHotelBooking()
+        all populate this modal from script.js
+
+  • My Bookings Panel (#myBookingsOverlay):
+      - Side-panel overlay (slide-in style)
+      - #myBookingsList rendered dynamically from
+        the bookings array stored in script.js
+      - Opened from the navbar after login
+      - closeMyBookings(event) closes on outside click
+
+  NOTE: All logic for these modals is in script.js.
+        These HTML files are just the skeleton/template.
+=======================================================
+-->
+
+  <!-- ══════════════════════════════════════
+        BOOKING WIZARD MODAL
+        Triggered by openBookingModal() in script.js
+        Also triggered by room/hotel "Book Now" buttons.
+  ══════════════════════════════════════ -->
+  <div id="bookingOverlay" onclick="closeBookingModal(event)">
+
+    <!-- Modal box (click inside does NOT close it) -->
+    <div class="bm-modal" onclick="event.stopPropagation()">
+
+      <!-- Modal Header -->
+      <div class="bm-header">
+        <h3>
+          <span style="color:#C9A84C;margin-right:0.5rem;">✦</span>
+          Reserve Your Stay
+        </h3>
+        <button class="bm-close" onclick="closeBookingModal(event)">✕</button>
+      </div>
+
+      <!-- Step Progress Indicator -->
+      <!-- JS adds/removes "active" and "completed" classes on each step -->
+      <div class="bm-steps">
+        <div class="bm-step active">
+          <div class="bm-step-num">1</div>
+          <span>Stay</span>
+        </div>
+        <div class="bm-step-sep"></div>
+
+        <div class="bm-step">
+          <div class="bm-step-num">2</div>
+          <span>Details</span>
+        </div>
+        <div class="bm-step-sep"></div>
+
+        <div class="bm-step">
+          <div class="bm-step-num">3</div>
+          <span>Payment</span>
+        </div>
+        <div class="bm-step-sep"></div>
+
+        <div class="bm-step">
+          <div class="bm-step-num">4</div>
+          <span>Confirm</span>
+        </div>
+      </div>
+
+      <!-- Dynamic content area: script.js injects HTML here for each step -->
+      <div id="bookingBody"></div>
+
+    </div><!-- /bm-modal -->
+
+  </div><!-- /bookingOverlay -->
+
+
+  <!-- ══════════════════════════════════════
+        MY BOOKINGS SIDE PANEL
+        Opened from navbar (logged-in users only).
+        Lists all confirmed bookings stored by script.js.
+  ══════════════════════════════════════ -->
+  <div id="myBookingsOverlay" onclick="closeMyBookings(event)">
+
+    <div class="mb-panel" onclick="event.stopPropagation()">
+
+      <!-- Panel Header -->
+      <div class="mb-header">
+        <div>
+          <h3>My Bookings</h3>
+          <div class="mb-header-sub">Your reservation history</div>
+        </div>
+        <button class="mb-close" onclick="closeMyBookings(event)">✕</button>
+      </div>
+
+      <!-- Booking list injected by script.js renderMyBookings() -->
+      <div id="myBookingsList"></div>
+
+    </div><!-- /mb-panel -->
+
+  </div><!-- /myBookingsOverlay -->

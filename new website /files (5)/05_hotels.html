@@ -1,0 +1,457 @@
+<!--
+=======================================================
+  LUXURY STAY — SECTION 5: HOTELS (22 Properties)
+  File: 05_hotels.html
+=======================================================
+  TOPIC COVERED:
+  • Search bar: filters hotel cards live via filterHotels()
+  • Filter buttons: filterByCategory(category, btn)
+      - Filters by data-category attribute on each card
+      - Categories: all, north, south, east, west, beach, heritage
+  • Hotel grid: 22 cards, each with:
+      - data-category  → used by JS filter logic
+      - data-name      → used by search bar (text match)
+      - hotel-ribbon   → region label badge (top-left)
+      - hotel-rating   → star rating badge (top-right)
+      - hotel-tags     → pill-style feature labels
+      - Book Now btn   → openHotelBooking(name, price)
+  • No results message shown when search yields nothing
+  • Count display ("Showing all 22 properties")
+=======================================================
+-->
+
+  <!-- ══════════════════════════════════════
+        HOTELS SECTION
+  ══════════════════════════════════════ -->
+  <section id="hotels" class="hotels-section section-pad">
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <p class="section-label">Our Portfolio</p>
+      <h2 class="section-title">Luxury Properties <em>Across India</em></h2>
+      <p class="section-sub-dark">Discover our curated collection of 22 magnificent hotels spanning India's most iconic destinations.</p>
+    </div>
+
+    <!-- ── Search + Filter Controls ── -->
+    <div class="hotel-controls">
+
+      <!-- Search Input: filters by city or hotel name in real-time -->
+      <div class="hotel-search-wrap">
+        <span class="hs-icon">🔍</span>
+        <input type="text" id="hotelSearch"
+               placeholder="Search by city or hotel name..."
+               oninput="filterHotels()"/>
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <!-- Active button highlighted; JS swaps .active class -->
+      <div class="hotel-filters">
+        <button class="hf-btn active"  onclick="filterByCategory('all',      this)">All</button>
+        <button class="hf-btn"         onclick="filterByCategory('north',    this)">North India</button>
+        <button class="hf-btn"         onclick="filterByCategory('south',    this)">South India</button>
+        <button class="hf-btn"         onclick="filterByCategory('east',     this)">East India</button>
+        <button class="hf-btn"         onclick="filterByCategory('west',     this)">West India</button>
+        <button class="hf-btn"         onclick="filterByCategory('beach',    this)">Beachfront</button>
+        <button class="hf-btn"         onclick="filterByCategory('heritage', this)">Heritage</button>
+      </div>
+
+    </div>
+
+    <!-- ── Hotels Grid ── -->
+    <div class="hotels-grid" id="hotelsGrid">
+
+      <!-- ▸ NORTH INDIA ──────────────────── -->
+
+      <div class="hotel-card reveal" data-category="north" data-name="the imperial palace new delhi">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600')">
+          <div class="hotel-ribbon">North India</div>
+          <div class="hotel-rating">★ 5.0</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 New Delhi, Delhi</div>
+          <h4>The Imperial Palace</h4>
+          <p>A timeless Art Deco landmark at the heart of the capital, offering colonial grandeur and modern luxury.</p>
+          <div class="hotel-tags"><span>Heritage</span><span>Pool</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹12,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('The Imperial Palace', 12000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north heritage" data-name="rambagh palace jaipur rajasthan">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600')">
+          <div class="hotel-ribbon">Heritage</div>
+          <div class="hotel-rating">★ 4.9</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Jaipur, Rajasthan</div>
+          <h4>Rambagh Palace</h4>
+          <p>Once a royal hunting lodge turned jewel of Jaipur — experience maharaja living in breathtaking Rajputana style.</p>
+          <div class="hotel-tags"><span>Palace</span><span>Garden</span><span>Heritage</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹32,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Rambagh Palace', 32000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north heritage" data-name="umaid bhawan palace jodhpur rajasthan">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600')">
+          <div class="hotel-ribbon">Heritage</div>
+          <div class="hotel-rating">★ 5.0</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Jodhpur, Rajasthan</div>
+          <h4>Umaid Bhawan Palace</h4>
+          <p>The world's largest private residence — part museum, part palace hotel, all majestic in Jodhpur's golden light.</p>
+          <div class="hotel-tags"><span>Palace</span><span>Museum</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹50,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Umaid Bhawan Palace', 50000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north heritage" data-name="samode haveli jaipur rajasthan frescoes">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1545579133-99bb5ad189be?w=600')">
+          <div class="hotel-ribbon">Heritage</div>
+          <div class="hotel-rating">★ 4.6</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Jaipur, Rajasthan</div>
+          <h4>Samode Haveli</h4>
+          <p>A 475-year-old palace in the old walled city, adorned with hand-painted frescoes and ornate mirrored chambers.</p>
+          <div class="hotel-tags"><span>Haveli</span><span>Frescoes</span><span>Rooftop</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹9,500<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Samode Haveli', 9500)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north" data-name="wildflower hall shimla himachal pradesh mountains">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=600')">
+          <div class="hotel-ribbon">North India</div>
+          <div class="hotel-rating">★ 4.9</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Mashobra, Himachal Pradesh</div>
+          <h4>Wildflower Hall</h4>
+          <p>Nestled in Himalayan cedar forests at 8,250 ft — once Lord Kitchener's residence, now a mountain sanctuary.</p>
+          <div class="hotel-tags"><span>Mountain</span><span>Forest</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹22,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Wildflower Hall', 22000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north" data-name="amanbagh haveli alwar rajasthan wilderness">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600')">
+          <div class="hotel-ribbon">North India</div>
+          <div class="hotel-rating">★ 4.9</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Alwar, Rajasthan</div>
+          <h4>Amanbagh Haveli</h4>
+          <p>A Mughal-inspired sanctuary in the Aravalli Hills, surrounded by ancient temples and untamed wilderness.</p>
+          <div class="hotel-tags"><span>Retreat</span><span>Wilderness</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹62,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Amanbagh Haveli', 62000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north" data-name="ananda himalayas rishikesh uttarakhand spa yoga wellness ganges">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600')">
+          <div class="hotel-ribbon">North India</div>
+          <div class="hotel-rating">★ 4.9</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Rishikesh, Uttarakhand</div>
+          <h4>Ananda in the Himalayas</h4>
+          <p>World-renowned destination spa nestled in 100 acres of sal forest overlooking the sacred Ganges and ancient Rishikesh.</p>
+          <div class="hotel-tags"><span>Spa</span><span>Wellness</span><span>Yoga</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹35,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Ananda in the Himalayas', 35000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ▸ WEST INDIA ──────────────────── -->
+
+      <div class="hotel-card reveal" data-category="west" data-name="grand harbour suites mumbai maharashtra">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600')">
+          <div class="hotel-ribbon">West India</div>
+          <div class="hotel-rating">★ 5.0</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Mumbai, Maharashtra</div>
+          <h4>Grand Harbour Suites</h4>
+          <p>Iconic seafront property overlooking the Gateway of India — where every window frames a masterpiece.</p>
+          <div class="hotel-tags"><span>Sea View</span><span>Iconic</span><span>Fine Dining</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹28,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Grand Harbour Suites', 28000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="west beach" data-name="leela beach resort goa cavelossim">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600')">
+          <div class="hotel-ribbon">Beachfront</div>
+          <div class="hotel-rating">★ 4.8</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Cavelossim, Goa</div>
+          <h4>The Leela Beach Resort</h4>
+          <p>A sun-drenched paradise on Goa's most pristine beach with private lagoons and Portuguese heritage.</p>
+          <div class="hotel-tags"><span>Beach</span><span>Pool</span><span>Watersports</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹16,500<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('The Leela Beach Resort', 16500)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="west beach" data-name="taj exotica resort benaulim south goa">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600')">
+          <div class="hotel-ribbon">Beachfront</div>
+          <div class="hotel-rating">★ 4.8</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Benaulim, South Goa</div>
+          <h4>Taj Exotica Resort</h4>
+          <p>Set against a backdrop of lush paddy fields and the azure Arabian Sea — luxury where nature and elegance entwine.</p>
+          <div class="hotel-tags"><span>Beachfront</span><span>Pool</span><span>Golf</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹19,500<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Taj Exotica Resort', 19500)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="west heritage" data-name="ahilya fort maheshwar madhya pradesh narmada river">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600')">
+          <div class="hotel-ribbon">Heritage</div>
+          <div class="hotel-rating">★ 4.7</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Maheshwar, Madhya Pradesh</div>
+          <h4>Ahilya Fort</h4>
+          <p>A living heritage fort on the banks of the Narmada river — guests dine with the family and explore timeless traditions.</p>
+          <div class="hotel-tags"><span>Fort</span><span>River</span><span>Heritage</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹17,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Ahilya Fort', 17000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="north west heritage" data-name="lake palace udaipur rajasthan romantic">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1549294413-26f195200c16?w=600')">
+          <div class="hotel-ribbon">Heritage</div>
+          <div class="hotel-rating">★ 5.0</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Udaipur, Rajasthan</div>
+          <h4>Lake Palace Udaipur</h4>
+          <p>An ethereal white marble palace afloat on Lake Pichola — one of the world's most romantic hotels since 1746.</p>
+          <div class="hotel-tags"><span>Lake Palace</span><span>Romantic</span><span>Heritage</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹55,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Lake Palace Udaipur', 55000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ▸ SOUTH INDIA ──────────────────── -->
+
+      <div class="hotel-card reveal" data-category="south heritage" data-name="falaknuma sky palace hyderabad telangana">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600')">
+          <div class="hotel-ribbon">Heritage</div>
+          <div class="hotel-rating">★ 5.0</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Hyderabad, Telangana</div>
+          <h4>Falaknuma Sky Palace</h4>
+          <p>Perched 2000 ft above Hyderabad, this nizam palace delivers royal opulence and breathtaking city vistas.</p>
+          <div class="hotel-tags"><span>Palace</span><span>Hilltop</span><span>Heritage</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹38,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Falaknuma Sky Palace', 38000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="south beach" data-name="vivanta beachfront kovalam kerala">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=600')">
+          <div class="hotel-ribbon">Beachfront</div>
+          <div class="hotel-rating">★ 4.7</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Kovalam, Kerala</div>
+          <h4>Vivanta Beachfront</h4>
+          <p>Perched on a dramatic cliff overlooking the Arabian Sea, offering traditional Kerala hospitality in modern style.</p>
+          <div class="hotel-tags"><span>Cliffside</span><span>Ayurveda</span><span>Beach</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹14,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Vivanta Beachfront', 14000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="south" data-name="itc grand chola chennai tamil nadu">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600')">
+          <div class="hotel-ribbon">South India</div>
+          <div class="hotel-rating">★ 4.9</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Chennai, Tamil Nadu</div>
+          <h4>ITC Grand Chola</h4>
+          <p>Inspired by the grandeur of the Chola dynasty — soaring spaces, exquisite craftsmanship, and unmatched southern hospitality.</p>
+          <div class="hotel-tags"><span>Grand</span><span>Fine Dining</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹15,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('ITC Grand Chola', 15000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="south" data-name="kumarakom lake resort kerala vembanad">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600')">
+          <div class="hotel-ribbon">South India</div>
+          <div class="hotel-rating">★ 4.7</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Kumarakom, Kerala</div>
+          <h4>Kumarakom Lake Resort</h4>
+          <p>A heritage property on Vembanad Lake offering traditional Kerala tharavad architecture and houseboat experiences.</p>
+          <div class="hotel-tags"><span>Lakeside</span><span>Houseboat</span><span>Ayurveda</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹18,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Kumarakom Lake Resort', 18000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="south beach" data-name="coral reef retreat andaman port blair island">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600')">
+          <div class="hotel-ribbon">Beachfront</div>
+          <div class="hotel-rating">★ 4.8</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Port Blair, Andaman</div>
+          <h4>Coral Reef Retreat</h4>
+          <p>Surrounded by turquoise seas and pristine coral gardens — an island paradise at the edge of the world.</p>
+          <div class="hotel-tags"><span>Island</span><span>Diving</span><span>Beachfront</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹20,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Coral Reef Retreat', 20000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="south" data-name="leela palace bengaluru bangalore karnataka">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600')">
+          <div class="hotel-ribbon">South India</div>
+          <div class="hotel-rating">★ 4.8</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Bengaluru, Karnataka</div>
+          <h4>The Leela Palace Bengaluru</h4>
+          <p>Draped in Hoysala architecture and surrounded by formal gardens — a regal oasis in India's silicon capital.</p>
+          <div class="hotel-tags"><span>Business</span><span>Garden</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹13,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('The Leela Palace Bengaluru', 13000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="south beach" data-name="fishermans cove mahabalipuram tamil nadu bay shore temple">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600')">
+          <div class="hotel-ribbon">Beachfront</div>
+          <div class="hotel-rating">★ 4.7</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Mahabalipuram, Tamil Nadu</div>
+          <h4>Fisherman's Cove Resort</h4>
+          <p>Whitewashed cottages along a pristine bay with views of ancient shore temples — where the Coromandel coast is at your doorstep.</p>
+          <div class="hotel-tags"><span>Bay View</span><span>Cottage</span><span>History</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹11,500<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Fisherman\'s Cove Resort', 11500)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ▸ EAST INDIA ──────────────────── -->
+
+      <div class="hotel-card reveal" data-category="east" data-name="the grand oberoi kolkata west bengal">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600')">
+          <div class="hotel-ribbon">East India</div>
+          <div class="hotel-rating">★ 4.8</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Kolkata, West Bengal</div>
+          <h4>The Grand Oberoi</h4>
+          <p>A bastion of refined elegance on the banks of the Hooghly — sophistication meets Bengal's rich cultural heritage.</p>
+          <div class="hotel-tags"><span>River View</span><span>Colonial</span><span>Spa</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹11,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('The Grand Oberoi', 11000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="east" data-name="mayfair himalayan resort darjeeling west bengal mountains">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=600')">
+          <div class="hotel-ribbon">East India</div>
+          <div class="hotel-rating">★ 4.6</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Darjeeling, West Bengal</div>
+          <h4>Mayfair Himalayan Resort</h4>
+          <p>Steeped in colonial history with panoramic views of Kanchenjunga — the perfect highland retreat above the clouds.</p>
+          <div class="hotel-tags"><span>Mountain View</span><span>Colonial</span><span>Tea Tours</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹8,000<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Mayfair Himalayan Resort', 8000)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hotel-card reveal" data-category="east" data-name="mayfair lagoon bhubaneswar odisha temple">
+        <div class="hotel-img" style="background-image:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600')">
+          <div class="hotel-ribbon">East India</div>
+          <div class="hotel-rating">★ 4.5</div>
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-location">📍 Bhubaneswar, Odisha</div>
+          <h4>Mayfair Lagoon</h4>
+          <p>A lush tropical resort amidst 10 acres of manicured gardens — the gateway to Odisha's ancient temples and Puri's shores.</p>
+          <div class="hotel-tags"><span>Garden</span><span>Pool</span><span>Cultural</span></div>
+          <div class="hotel-footer">
+            <span class="hotel-price">₹7,500<small>/night</small></span>
+            <button class="btn-hotel" onclick="openHotelBooking('Mayfair Lagoon', 7500)">Book Now</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /hotels-grid -->
+
+    <!-- No results message (shown by JS when search finds nothing) -->
+    <div class="no-results hidden" id="noResults">
+      <span>🔍</span><p>No hotels found. Try a different search or filter.</p>
+    </div>
+
+    <!-- Count of visible hotels -->
+    <div class="hotels-load-more">
+      <p class="showing-count" id="showingCount">Showing all 22 properties</p>
+    </div>
+
+  </section>

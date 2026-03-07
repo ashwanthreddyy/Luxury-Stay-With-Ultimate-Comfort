@@ -1,0 +1,106 @@
+<!--
+=======================================================
+  LUXURY STAY — SECTION 4: ROOMS
+  File: 04_rooms.html
+=======================================================
+  TOPIC COVERED:
+  • Dark-themed section (dark-section class)
+  • 3 room cards in a responsive CSS grid
+  • Each card contains:
+      - Room image (background-image)
+      - Room tag (Standard / Premium / Elite)
+      - Name, description, features list
+      - Price per night
+      - "Book" button → calls openRoomBooking() in script.js
+  • "featured" class on Executive Suite = Most Popular badge
+  • "reveal" class = fade-in on scroll via IntersectionObserver
+=======================================================
+-->
+
+  <!-- ══════════════════════════════════════
+        ROOMS SECTION
+  ══════════════════════════════════════ -->
+  <section id="rooms" class="rooms section-pad dark-section">
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <p class="section-label light">Our Rooms</p>
+      <h2 class="section-title light">Stay in <em>Pure Luxury</em></h2>
+      <p class="section-sub">Each room is a sanctuary designed with the finest materials and thoughtful amenities.</p>
+    </div>
+
+    <!-- Rooms Grid (3 cards) -->
+    <div class="rooms-grid">
+
+      <!-- ── CARD 1: Deluxe Room ── -->
+      <div class="room-card reveal">
+        <div class="room-img"
+             style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700')">
+        </div>
+        <div class="room-body">
+          <div class="room-tag">Standard</div>
+          <h3>Deluxe Room</h3>
+          <p>Refined comfort with city skyline views, plush king bed, and premium bath amenities.</p>
+          <ul class="room-features">
+            <li>👑 King-size Bed</li>
+            <li>📶 High-Speed WiFi</li>
+            <li>🌇 City View</li>
+            <li>🛁 Jacuzzi Bath</li>
+          </ul>
+          <div class="room-footer">
+            <span class="price">₹8,500<small>/night</small></span>
+            <!-- openRoomBooking(name, price) defined in script.js -->
+            <button class="btn-room" onclick="openRoomBooking('Deluxe Room', 8500)">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 2: Executive Suite (FEATURED) ── -->
+      <!-- "featured" class adds gold border + "Most Popular" badge -->
+      <div class="room-card featured reveal">
+        <div class="room-badge">Most Popular</div>
+        <div class="room-img"
+             style="background-image:url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=700')">
+        </div>
+        <div class="room-body">
+          <div class="room-tag">Premium</div>
+          <h3>Executive Suite</h3>
+          <p>Expansive living area, private balcony, and a dedicated butler for your every need.</p>
+          <ul class="room-features">
+            <li>🛏️ Double King Beds</li>
+            <li>🍾 Welcome Champagne</li>
+            <li>🌊 Ocean View</li>
+            <li>🧖 Spa Access</li>
+          </ul>
+          <div class="room-footer">
+            <span class="price">₹18,000<small>/night</small></span>
+            <button class="btn-room" onclick="openRoomBooking('Executive Suite', 18000)">Book</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── CARD 3: Presidential Suite ── -->
+      <div class="room-card reveal">
+        <div class="room-img"
+             style="background-image:url('https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=700')">
+        </div>
+        <div class="room-body">
+          <div class="room-tag">Elite</div>
+          <h3>Presidential Suite</h3>
+          <p>The pinnacle of indulgence — a private floor with panoramic views and bespoke decor.</p>
+          <ul class="room-features">
+            <li>🏙️ Panoramic Views</li>
+            <li>🎭 Private Theatre</li>
+            <li>🍳 Private Chef</li>
+            <li>🚗 Airport Transfer</li>
+          </ul>
+          <div class="room-footer">
+            <span class="price">₹45,000<small>/night</small></span>
+            <button class="btn-room" onclick="openRoomBooking('Presidential Suite', 45000)">Book</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /rooms-grid -->
+
+  </section>

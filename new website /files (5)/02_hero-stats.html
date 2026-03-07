@@ -1,0 +1,98 @@
+<!--
+=======================================================
+  LUXURY STAY — SECTION 2: HERO + STATS STRIP
+  File: 02_hero-stats.html
+=======================================================
+  TOPIC COVERED:
+  • Hero Section:
+      - Full-screen background image (hero-bg)
+      - Dark overlay for text contrast (hero-overlay)
+      - Animated headline and tagline
+      - Two CTA buttons: "Explore Rooms" & "Our Hotels"
+      - Scroll indicator arrow at the bottom
+  • Stats Strip:
+      - Animated counters (count up from 0)
+      - 4 key statistics: Rooms, Satisfaction, Years, Hotels
+      - Gold dividers between stats
+=======================================================
+-->
+
+  <!-- ══════════════════════════════════════
+        HERO SECTION
+        Full-viewport landing visual.
+        Background image set via CSS (style.css).
+        Text items use class "reveal" — animated in
+        by the IntersectionObserver in script.js.
+  ══════════════════════════════════════ -->
+  <section id="home" class="hero">
+
+    <div class="hero-bg"></div>        <!-- Background image layer -->
+    <div class="hero-overlay"></div>  <!-- Dark gradient overlay -->
+
+    <div class="hero-content">
+      <!-- Sub-heading (appears first with animation delay) -->
+      <p class="hero-sub reveal">Where Luxury Meets Serenity</p>
+
+      <!-- Main Headline -->
+      <h1 class="hero-title reveal">
+        Experience the<br/><em>Ultimate Comfort</em>
+      </h1>
+
+      <!-- Description text -->
+      <p class="hero-desc reveal">
+        Nestled in the heart of the city, Luxury Stay offers an unparalleled
+        escape into elegance, tranquility, and world-class hospitality.
+      </p>
+
+      <!-- Call-to-Action Buttons -->
+      <!-- scrollTo() is a custom function defined in script.js -->
+      <div class="hero-btns reveal">
+        <button class="btn-primary" onclick="scrollTo('#rooms')">Explore Rooms</button>
+        <button class="btn-outline" onclick="scrollTo('#hotels')">Our Hotels</button>
+      </div>
+    </div>
+
+    <!-- Scroll hint at bottom of hero -->
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+        STATS STRIP
+        Animated count-up numbers.
+        data-target = the final number each counter
+        counts up to. Triggered by countUp() in script.js
+        when this section enters the viewport.
+  ══════════════════════════════════════ -->
+  <section class="stats-strip">
+
+    <div class="stat">
+      <h3 class="count" data-target="120">0</h3>
+      <p>Luxury Rooms</p>
+    </div>
+
+    <div class="stat-divider">✦</div>
+
+    <div class="stat">
+      <h3 class="count" data-target="98">0</h3>
+      <p>% Guest Satisfaction</p>
+    </div>
+
+    <div class="stat-divider">✦</div>
+
+    <div class="stat">
+      <h3 class="count" data-target="25">0</h3>
+      <p>Years of Excellence</p>
+    </div>
+
+    <div class="stat-divider">✦</div>
+
+    <div class="stat">
+      <h3 class="count" data-target="22">0</h3>
+      <p>Hotel Properties</p>
+    </div>
+
+  </section>

@@ -1,0 +1,192 @@
+<!--
+=======================================================
+  LUXURY STAY — SECTION 7: CONTACT + FOOTER
+  File: 07_contact-footer.html
+=======================================================
+  TOPIC COVERED:
+  • Contact Section:
+      - Two-column layout: Info (left) + Form (right)
+      - Contact items: Address, Phone, Email, Hours
+      - Form fields: Name, Email, Subject, Message
+      - submitForm(event) handles submission in script.js
+      - Success message (#formSuccess) shown after submit
+
+  • Footer:
+      - Brand column with tagline
+      - Quick Links column
+      - Services column
+      - Newsletter email input + subscribeNewsletter()
+      - Social media icon buttons (f, in, ig, yt)
+      - Footer bottom: copyright + project credit
+
+  • Back to Top Button:
+      - Fixed floating button (#backToTop)
+      - Appears after scrolling down (handled in script.js)
+=======================================================
+-->
+
+  <!-- ══════════════════════════════════════
+        CONTACT SECTION
+  ══════════════════════════════════════ -->
+  <section id="contact" class="contact section-pad">
+
+    <div class="section-header">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title"><em>Contact</em> Us</h2>
+    </div>
+
+    <div class="contact-wrap">
+
+      <!-- LEFT: Contact Info -->
+      <div class="contact-info reveal-left">
+
+        <div class="contact-item">
+          <span class="ci-icon">📍</span>
+          <div>
+            <strong>Address</strong>
+            <p>12, Grand Palace Road, Connaught Place,<br/>New Delhi – 110001, India</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="ci-icon">📞</span>
+          <div>
+            <strong>Phone</strong>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="ci-icon">✉️</span>
+          <div>
+            <strong>Email</strong>
+            <p>concierge@luxurystay.in</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <span class="ci-icon">🕐</span>
+          <div>
+            <strong>Front Desk</strong>
+            <p>Open 24 Hours, 7 Days a Week</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Contact Form -->
+      <!-- submitForm(event) is defined in script.js -->
+      <form class="contact-form reveal-right" onsubmit="submitForm(event)">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text"  id="cName"    placeholder="Your Name"         required/>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="cEmail"   placeholder="your@email.com"    required/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" id="cSubject" placeholder="Inquiry subject"/>
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="cMessage" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary full-width">Send Message</button>
+
+        <!-- Success message: hidden by default, shown after form submission -->
+        <p class="form-success" id="formSuccess">✅ Message sent! We'll respond within 24 hours.</p>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+        FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+
+    <!-- Top Section: 4 columns -->
+    <div class="footer-top">
+
+      <!-- Column 1: Brand Info -->
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:1rem">
+          <span class="logo-symbol">✦</span>
+          <span class="logo-text">Luxury Stay</span>
+        </div>
+        <p>Where every moment is a memory. Experience the pinnacle of comfort and elegance across 22 iconic properties in India.</p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-links">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#rooms">Rooms</a></li>
+          <li><a href="#hotels">Our Hotels</a></li>
+          <li><a href="#amenities">Amenities</a></li>
+          <li><a href="login.html">Sign In</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Services -->
+      <div class="footer-links">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">Room Service</a></li>
+          <li><a href="#">Spa & Wellness</a></li>
+          <li><a href="#">Fine Dining</a></li>
+          <li><a href="#">Event Planning</a></li>
+          <li><a href="#">Airport Pickup</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Newsletter + Socials -->
+      <div class="footer-newsletter">
+        <h5>Newsletter</h5>
+        <p>Subscribe for exclusive offers and updates.</p>
+        <div class="newsletter-input">
+          <input type="email" placeholder="Enter your email"/>
+          <!-- subscribeNewsletter() defined in script.js -->
+          <button onclick="subscribeNewsletter()">→</button>
+        </div>
+        <!-- Social icon links -->
+        <div class="social-links">
+          <a href="#" class="social-btn">f</a>
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">ig</a>
+          <a href="#" class="social-btn">yt</a>
+        </div>
+      </div>
+
+    </div><!-- /footer-top -->
+
+    <!-- Bottom bar: copyright -->
+    <div class="footer-bottom">
+      <p>© 2025 Luxury Stay — Ultimate Comfort. All Rights Reserved.</p>
+      <p>Designed with ♥ for a College Project</p>
+    </div>
+
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+        BACK TO TOP BUTTON
+        Hidden by default. Shown by script.js
+        after user scrolls past 400px.
+        Clicking scrolls smoothly back to top.
+  ══════════════════════════════════════ -->
+  <button class="back-to-top" id="backToTop"
+          onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
